@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Image Resizer — File Utility Suite{% endblock %}
+
+{% block content %}
+<section class="page-shell container">
+    <a class="back-link" href="/">← All tools</a>
+    <div class="tool-heading">
+        <div class="tool-icon icon-image" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img"><rect x="7" y="8" width="34" height="32" rx="6"/><circle cx="18" cy="19" r="3"/><path d="m9 34 10-10 7 7 5-5 8 8"/></svg>
+        </div>
+        <div><span class="eyebrow">IMAGE TOOL</span><h1>Image Resizer</h1><p>Adjust your image to the exact dimensions you need.</p></div>
+    </div>
+    <div class="form-card">
+        <form action="/resize/process" method="post" enctype="multipart/form-data" class="utility-form">
+            <label class="drop-zone" for="image">
+                <span class="upload-icon" aria-hidden="true">↑</span>
+                <strong>Choose an image to upload</strong>
+                <span>or drag and drop it here</span>
+                <small>JPG, PNG, or WEBP · Up to 20 MB</small>
+                <input
+                    id="image"
+                    name="image"
+                    type="file"
+                    accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                    data-file-preview
+                    data-allowed-extensions=".jpg,.jpeg,.png,.webp"
+                    data-max-files="1"
+                    data-max-size-mb="20"
+                    required
+                >
+            </label>
+            <div class="selected-files" data-preview-list hidden aria-live="polite"></div>
+            <div class="field-row">
+                <label class="field">
+                    <span>Width <span class="unit">(pixels)</span></span>
+                    <input type="number" name="width" min="1" max="10000" value="{{ width or 800 }}" required>
+                </label>
+                <span class="dimension-x" aria-hidden="true">×</span>
+                <label class="field">
+                    <span>Height <span class="unit">(pixels)</span></span>
+                    <input type="number" name="height" min="1" max="10000" value="{{ height or 600 }}" required>
+                </label>
+            </div>
+            <label class="check-row">
+                <input type="checkbox" name="maintain_aspect_ratio" value="true" {% if maintain_aspect_ratio %}checked{% endif %}>
+                <span class="custom-check" aria-hidden="true"></span>
+                <span><strong>Maintain aspect ratio</strong><small>Fit the image inside your selected dimensions.</small></span>
+            </label>
+            <button class="button button-primary button-wide" type="submit">
+                Resize &amp; download
+                <span class="loading-spinner" aria-hidden="true"></span>
+            </button>
+        </form>
+        <p class="privacy-note"><span aria-hidden="true">▣</span> Preview stays in your browser until you start resizing; temporary files are cleared automatically.</p>
+    </div>
+</section>
+{% endblock %}

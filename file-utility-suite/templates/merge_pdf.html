@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Merge PDF — File Utility Suite{% endblock %}
+
+{% block content %}
+<section class="page-shell container">
+    <a class="back-link" href="/">← All tools</a>
+    <div class="tool-heading">
+        <div class="tool-icon icon-merge" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img"><path d="M10 13h20v27H10zM18 8h20v27"/><path d="M15 21h10M15 27h10M15 33h7M23 16h10M23 22h10"/></svg>
+        </div>
+        <div><span class="eyebrow">PDF TOOL</span><h1>Merge PDF files</h1><p>Combine multiple PDF documents into one file.</p></div>
+    </div>
+    <div class="form-card">
+        <form action="/merge-pdf" method="post" enctype="multipart/form-data" class="utility-form">
+            <label class="drop-zone" for="files">
+                <span class="upload-icon" aria-hidden="true">↑</span>
+                <strong>Choose PDF files to merge</strong>
+                <span>Select two or more documents in the order you want them combined.</span>
+                <small>PDF files · Up to 20 files · 30 MB each</small>
+                <input
+                    id="files"
+                    name="files"
+                    type="file"
+                    accept=".pdf,application/pdf"
+                    data-file-preview
+                    data-allowed-extensions=".pdf"
+                    data-max-files="20"
+                    data-min-files="2"
+                    data-max-size-mb="30"
+                    multiple
+                    required
+                >
+            </label>
+            <div class="selected-files" data-preview-list hidden aria-live="polite"></div>
+            <div class="order-note"><span aria-hidden="true">↕</span><span><strong>Order matters</strong> — merged pages follow the order of your selected files.</span></div>
+            <button class="button button-primary button-wide" type="submit">Merge PDFs <span class="loading-spinner" aria-hidden="true"></span></button>
+        </form>
+        <p class="privacy-note"><span aria-hidden="true">▣</span> Previews stay in your browser until you start merging; temporary files are cleared automatically.</p>
+    </div>
+</section>
+{% endblock %}

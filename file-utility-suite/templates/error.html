@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Something went wrong — File Utility Suite{% endblock %}
+
+{% block content %}
+<section class="page-shell container result-shell">
+    <div class="result-card">
+        <div class="result-icon error-icon" aria-hidden="true">!</div>
+        <span class="eyebrow">LET'S TRY THAT AGAIN</span>
+        <h1>We couldn't process that file</h1>
+        <p class="result-message" role="alert">{{ message }}</p>
+        <a class="button button-primary button-wide" href="/">Back to all tools</a>
+        <p class="error-code">Error {{ status_code }}</p>
+    </div>
+</section>
+{% endblock %}

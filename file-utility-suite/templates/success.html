@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}File ready — File Utility Suite{% endblock %}
+
+{% block content %}
+<section class="page-shell container result-shell">
+    <div class="result-card">
+        <div class="result-icon success-icon" aria-hidden="true">✓</div>
+        <span class="eyebrow">ALL DONE</span>
+        <h1>{{ title }}</h1>
+        <p class="result-message">{{ message }}</p>
+        {% if filenames %}
+        <div class="file-list">
+            <h2>Files processed</h2>
+            <ol>
+                {% for filename in filenames %}
+                <li><span class="file-list-icon" aria-hidden="true">▤</span><span>{{ filename }}</span></li>
+                {% endfor %}
+            </ol>
+        </div>
+        {% endif %}
+        <a class="button button-primary button-wide" href="{{ download_url }}" download>{{ download_name }} <span aria-hidden="true">↓</span></a>
+        <a class="text-link result-link" href="/">Back to all tools <span aria-hidden="true">→</span></a>
+    </div>
+</section>
+{% endblock %}

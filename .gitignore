@@ -1,0 +1,7 @@
+# This repo is scoped to file-utility-suite only; ignore unrelated sibling folders
+/.github/
+/.vscode/
+/AWS_Learning/
+/Project/
+/graphify-out/
+/command.ps1

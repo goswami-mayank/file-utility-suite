@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}JPG to PDF — File Utility Suite{% endblock %}
+
+{% block content %}
+<section class="page-shell container">
+    <a class="back-link" href="/">← All tools</a>
+    <div class="tool-heading">
+        <div class="tool-icon icon-convert" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img"><path d="M13 7h15l8 8v26H13z"/><path d="M28 7v9h8M18 24h13M18 30h13M18 36h9"/></svg>
+        </div>
+        <div><span class="eyebrow">CONVERT TOOL</span><h1>JPG to PDF</h1><p>Combine your images into one polished PDF document.</p></div>
+    </div>
+    <div class="form-card">
+        <form action="/jpg-to-pdf" method="post" enctype="multipart/form-data" class="utility-form">
+            <label class="drop-zone" for="images">
+                <span class="upload-icon" aria-hidden="true">↑</span>
+                <strong>Choose images to upload</strong>
+                <span>Select one or more images. Their selection order is preserved.</span>
+                <small>JPG, JPEG, or PNG · Up to 30 images · 20 MB each</small>
+                <input
+                    id="images"
+                    name="images"
+                    type="file"
+                    accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                    data-file-preview
+                    data-allowed-extensions=".jpg,.jpeg,.png"
+                    data-max-files="30"
+                    data-max-size-mb="20"
+                    multiple
+                    required
+                >
+            </label>
+            <div class="selected-files" data-preview-list hidden aria-live="polite"></div>
+            <label class="field full-field">
+                <span>Output PDF filename</span>
+                <input type="text" name="output_filename" value="converted-images" maxlength="100" placeholder="converted-images">
+                <small class="field-hint">The .pdf extension is added automatically.</small>
+            </label>
+            <button class="button button-primary button-wide" type="submit">Convert to PDF <span class="loading-spinner" aria-hidden="true"></span></button>
+        </form>
+        <p class="privacy-note"><span aria-hidden="true">▣</span> Previews stay in your browser until you start converting; temporary files are cleared automatically.</p>
+    </div>
+</section>
+{% endblock %}

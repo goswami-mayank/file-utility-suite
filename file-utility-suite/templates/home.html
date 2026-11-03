@@ -1,0 +1,389 @@
+{% extends "base.html" %}
+
+{% block title %}File Utility Suite — File tools{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-inner">
+        <span class="eyebrow"><span class="status-dot"></span> YOUR EVERYDAY FILE WORKBENCH</span>
+        <h1>Make your files<br><span>work for you.</span></h1>
+        <p>Convert, format, and inspect everyday files. Audio and video edits run through the FastAPI processing service.</p>
+        <a class="button button-primary hero-button" href="#tools">Explore tools <span aria-hidden="true">↓</span></a>
+        <div class="hero-art" aria-hidden="true">
+            <div class="art-card art-card-back"></div>
+            <div class="art-card art-card-front">
+                <span class="art-image-icon">▧</span>
+                <span class="art-line"></span>
+                <span class="art-line short"></span>
+            </div>
+            <div class="art-sparkle">✦</div>
+            <div class="art-circle"></div>
+        </div>
+    </div>
+</section>
+
+<section class="tools-section container" id="tools" aria-labelledby="tools-title">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">ONE PLACE FOR EVERYDAY FILE TASKS</span>
+            <h2 id="tools-title">What would you like to do?</h2>
+        </div>
+        <p>Search by task or browse a category.</p>
+    </div>
+
+    <div class="tool-discovery">
+        <label class="search-field" for="tool-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="tool-search" type="search" placeholder="Search tools, formats, or tasks" autocomplete="off">
+        </label>
+        <div class="category-filters" role="group" aria-label="Filter tools by category">
+            <button class="filter-chip" type="button" data-category-filter="all" aria-pressed="true">All tools</button>
+            <button class="filter-chip" type="button" data-category-filter="image" aria-pressed="false">Images</button>
+            <button class="filter-chip" type="button" data-category-filter="pdf" aria-pressed="false">PDF &amp; documents</button>
+            <button class="filter-chip" type="button" data-category-filter="media" aria-pressed="false">Audio &amp; video</button>
+            <button class="filter-chip" type="button" data-category-filter="data" aria-pressed="false">Data &amp; text</button>
+        </div>
+    </div>
+
+    <div class="tool-grid" id="tool-grid">
+        <article class="tool-card" data-tool-card data-category="data" data-search="json formatter prettify minify validate format">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-data" aria-hidden="true">{ }</span>
+                <span class="tool-support support-ready">Ready</span>
+            </div>
+            <span class="card-kicker">DATA &amp; TEXT</span>
+            <h3>JSON Formatter</h3>
+            <p>Validate JSON, then make it readable or compact it for sharing.</p>
+            <button class="text-link" type="button" data-open-tool="json-format">Format JSON <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="data" data-search="csv json convert comma separated spreadsheet rows">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-data" aria-hidden="true">CSV</span>
+                <span class="tool-support support-ready">Ready</span>
+            </div>
+            <span class="card-kicker">DATA &amp; TEXT</span>
+            <h3>CSV to JSON</h3>
+            <p>Turn quoted CSV rows into structured JSON, with clear errors for malformed data.</p>
+            <button class="text-link" type="button" data-open-tool="csv-json">Convert CSV <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="data" data-search="text case uppercase lowercase title formatting">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-data" aria-hidden="true">Aa</span>
+                <span class="tool-support support-ready">Ready</span>
+            </div>
+            <span class="card-kicker">DATA &amp; TEXT</span>
+            <h3>Text Case</h3>
+            <p>Switch text between uppercase, lowercase, and title case without losing spacing.</p>
+            <button class="text-link" type="button" data-open-tool="text-case">Change case <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="data" data-search="base64 encode decode unicode text">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-data" aria-hidden="true">64</span>
+                <span class="tool-support support-ready">Ready</span>
+            </div>
+            <span class="card-kicker">DATA &amp; TEXT</span>
+            <h3>Base64 Text</h3>
+            <p>Encode or decode UTF-8 text locally, including non-English characters.</p>
+            <button class="text-link" type="button" data-open-tool="base64">Encode or decode <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="image" data-search="image resize jpg jpeg png webp dimensions convert format">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-image" aria-hidden="true">▧</span>
+                <span class="tool-support support-ready">Ready</span>
+            </div>
+            <span class="card-kicker">IMAGE</span>
+            <h3>Image Resizer</h3>
+            <p>Resize JPG, PNG, or WEBP images and export to a browser-supported image format.</p>
+            <button class="text-link" type="button" data-open-tool="image-resize">Resize an image <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="image pdf" data-search="jpg jpeg png image photos convert pdf">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-convert" aria-hidden="true">PDF</span>
+                <span class="tool-support support-ready">Ready</span>
+            </div>
+            <span class="card-kicker">IMAGE TO PDF</span>
+            <h3>Images to PDF</h3>
+            <p>Combine JPG and PNG images into a PDF in the order you select.</p>
+            <button class="text-link" type="button" data-open-tool="images-pdf">Create a PDF <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="pdf" data-search="pdf merge combine documents pages">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-merge" aria-hidden="true">▤</span>
+                <span class="tool-support support-ready">Ready</span>
+            </div>
+            <span class="card-kicker">PDF &amp; DOCUMENTS</span>
+            <h3>PDF Merger</h3>
+            <p>Combine PDF files in selection order. Password-protected PDFs are not supported.</p>
+            <button class="text-link" type="button" data-open-tool="pdf-merge">Merge PDFs <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="media" data-search="audio video inspect metadata duration dimensions preview codecs extensions">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-media" aria-hidden="true">▶</span>
+                <span class="tool-support support-ready">Browser</span>
+            </div>
+            <span class="card-kicker">AUDIO &amp; VIDEO</span>
+            <h3>Media Inspector</h3>
+            <p>Identify media by filename extension, preview it, and inspect browser-readable duration and dimensions.</p>
+            <button class="text-link" type="button" data-open-tool="media-inspect">Inspect media <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="media" data-search="audio video trim cut crop start end time range">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-media" aria-hidden="true">◷</span>
+                <span class="tool-support support-ready">FFmpeg</span>
+            </div>
+            <span class="card-kicker">AUDIO &amp; VIDEO</span>
+            <h3>Media Trimmer</h3>
+            <p>Set start and end times, then export audio as MP3 or video as MP4.</p>
+            <button class="text-link" type="button" data-open-tool="media-trim">Trim media <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="media" data-search="video crop frame dimensions x y width height">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-media" aria-hidden="true">▣</span>
+                <span class="tool-support support-ready">FFmpeg</span>
+            </div>
+            <span class="card-kicker">VIDEO</span>
+            <h3>Video Cropper</h3>
+            <p>Crop a frame by entering its position and output dimensions.</p>
+            <button class="text-link" type="button" data-open-tool="video-crop">Crop video <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="media" data-search="video caption subtitle text overlay start end">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-media" aria-hidden="true">CC</span>
+                <span class="tool-support support-ready">FFmpeg</span>
+            </div>
+            <span class="card-kicker">VIDEO</span>
+            <h3>Caption Overlay</h3>
+            <p>Add custom text to a video for a selected time range.</p>
+            <button class="text-link" type="button" data-open-tool="video-caption">Add caption <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="tool-card" data-tool-card data-category="media" data-search="audio video merge combine concatenate join files order compatible">
+            <div class="tool-card-top">
+                <span class="tool-symbol icon-media" aria-hidden="true">⇄</span>
+                <span class="tool-support support-ready">FFmpeg</span>
+            </div>
+            <span class="card-kicker">AUDIO &amp; VIDEO</span>
+            <h3>Media Merger</h3>
+            <p>Join compatible audio files or compatible video files in selection order.</p>
+            <button class="text-link" type="button" data-open-tool="media-merge">Merge media <span aria-hidden="true">→</span></button>
+        </article>
+    </div>
+
+    <p class="empty-tools" id="empty-tools" role="status" hidden>No tools match that search. Try another term or category.</p>
+</section>
+
+<section class="trust-strip" id="privacy-note">
+    <div class="container trust-inner">
+        <span class="trust-icon" aria-hidden="true">i</span>
+        <div><strong>Processing details</strong><span>Image, PDF, and text tools run in your browser. Media edits upload files to FastAPI, then remove temporary files after processing.</span></div>
+        <span class="trust-note">Media uploads: 100 MB per file</span>
+    </div>
+</section>
+
+<dialog class="tool-dialog" id="tool-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-header">
+        <div>
+            <span class="eyebrow">PROCESSING MODE VARIES BY TOOL</span>
+            <h2 id="dialog-title">File tool</h2>
+        </div>
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Close tool">×</button>
+    </div>
+    <p class="tool-status" id="tool-status" role="status" aria-live="polite"></p>
+
+    <section class="tool-panel" data-tool-panel="json-format" hidden>
+        <label class="tool-field" for="json-input">JSON input
+            <textarea class="tool-textarea" id="json-input" rows="9" spellcheck="false" placeholder='{"name":"Ada","active":true}'></textarea>
+        </label>
+        <div class="tool-actions">
+            <button class="button button-primary" type="button" data-json-action="pretty">Format JSON</button>
+            <button class="button button-secondary" type="button" data-json-action="compact">Minify JSON</button>
+        </div>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="csv-json" hidden>
+        <label class="tool-field" for="csv-input">CSV input
+            <textarea class="tool-textarea" id="csv-input" rows="9" spellcheck="false" placeholder="name,note&#10;Ada,&quot;Loves careful data&quot;"></textarea>
+        </label>
+        <p class="tool-hint">The first row supplies unique column names. Quoted commas and line breaks are supported.</p>
+        <button class="button button-primary" id="csv-convert" type="button">Convert to JSON</button>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="text-case" hidden>
+        <label class="tool-field" for="case-input">Text to transform
+            <textarea class="tool-textarea" id="case-input" rows="7" placeholder="Type or paste text here"></textarea>
+        </label>
+        <div class="tool-actions">
+            <label class="tool-field compact-field" for="case-mode">Case
+                <select class="tool-select" id="case-mode">
+                    <option value="title">Title case</option>
+                    <option value="upper">UPPERCASE</option>
+                    <option value="lower">lowercase</option>
+                </select>
+            </label>
+            <button class="button button-primary" id="case-convert" type="button">Transform text</button>
+        </div>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="base64" hidden>
+        <label class="tool-field" for="base64-input">Text
+            <textarea class="tool-textarea" id="base64-input" rows="7" placeholder="Enter UTF-8 text or a Base64 string"></textarea>
+        </label>
+        <div class="tool-actions">
+            <label class="tool-field compact-field" for="base64-mode">Action
+                <select class="tool-select" id="base64-mode">
+                    <option value="encode">Encode to Base64</option>
+                    <option value="decode">Decode from Base64</option>
+                </select>
+            </label>
+            <button class="button button-primary" id="base64-run" type="button">Run</button>
+        </div>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="image-resize" hidden>
+        <label class="tool-field" for="image-file">Image file
+            <input class="tool-input" id="image-file" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+            <span class="tool-hint">JPG, PNG, or WEBP · 20 MB maximum</span>
+        </label>
+        <div class="tool-control-grid">
+            <label class="tool-field" for="image-width">Width (pixels)
+                <input class="tool-input" id="image-width" type="number" min="1" max="10000" value="800">
+            </label>
+            <label class="tool-field" for="image-height">Height (pixels)
+                <input class="tool-input" id="image-height" type="number" min="1" max="10000" value="600">
+            </label>
+        </div>
+        <div class="tool-control-grid">
+            <label class="tool-field" for="image-format">Export format
+                <select class="tool-select" id="image-format">
+                    <option value="image/png">PNG</option>
+                    <option value="image/jpeg">JPEG</option>
+                    <option value="image/webp">WEBP</option>
+                </select>
+            </label>
+            <label class="tool-field" for="image-quality">Quality <span id="quality-value">92%</span>
+                <input id="image-quality" type="range" min="10" max="100" value="92">
+            </label>
+        </div>
+        <label class="check-row tool-check">
+            <input id="image-aspect" type="checkbox">
+            <span><strong>Keep aspect ratio</strong><small>Fit inside the dimensions above without enlarging.</small></span>
+        </label>
+        <button class="button button-primary" id="image-resize" type="button">Resize image</button>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="images-pdf" hidden>
+        <label class="tool-field" for="images-pdf-files">JPG or PNG images
+            <input class="tool-input" id="images-pdf-files" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" multiple>
+            <span class="tool-hint">Up to 30 images · 20 MB each · 100 MB total</span>
+        </label>
+        <label class="tool-field" for="images-pdf-name">Output filename
+            <input class="tool-input" id="images-pdf-name" type="text" maxlength="80" value="converted-images">
+        </label>
+        <button class="button button-primary" id="images-to-pdf" type="button">Create PDF</button>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="pdf-merge" hidden>
+        <label class="tool-field" for="pdf-files">PDF files
+            <input class="tool-input" id="pdf-files" type="file" accept=".pdf,application/pdf" multiple>
+            <span class="tool-hint">Choose 2–20 PDFs · 30 MB each · 100 MB total</span>
+        </label>
+        <button class="button button-primary" id="pdf-merge" type="button">Merge PDFs</button>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="media-inspect" hidden>
+        <label class="tool-field" for="media-file">Audio or video file
+            <input class="tool-input" id="media-file" type="file" accept=".aac,.flac,.m4a,.mp3,.oga,.ogg,.opus,.wav,.avi,.m4v,.mkv,.mov,.mp4,.mpeg,.mpg,.webm">
+            <span class="tool-hint">Classified by extension. Preview and metadata stay in this browser; codec support varies.</span>
+        </label>
+        <audio class="media-preview" id="audio-preview" controls hidden></audio>
+        <video class="media-preview video-preview" id="video-preview" controls preload="metadata" hidden></video>
+        <button class="button button-secondary" id="media-inspect" type="button">Inspect metadata</button>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="media-trim" hidden>
+        <label class="tool-field" for="media-trim-file">Audio or video file
+            <input class="tool-input" id="media-trim-file" type="file" accept=".aac,.flac,.m4a,.mp3,.oga,.ogg,.opus,.wav,.avi,.m4v,.mkv,.mov,.mp4,.mpeg,.mpg,.webm">
+            <span class="tool-hint">100 MB maximum. Audio exports as MP3; video exports as MP4. The file is uploaded to FastAPI for editing.</span>
+        </label>
+        <div class="tool-control-grid">
+            <label class="tool-field" for="trim-start">Start time (seconds)
+                <input class="tool-input" id="trim-start" type="number" min="0" max="10800" step="0.1" value="0">
+            </label>
+            <label class="tool-field" for="trim-end">End time (seconds)
+                <input class="tool-input" id="trim-end" type="number" min="0.1" max="12600" step="0.1" value="10">
+            </label>
+        </div>
+        <button class="button button-primary" id="media-trim" type="button">Trim and download</button>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="video-crop" hidden>
+        <label class="tool-field" for="video-crop-file">Video file
+            <input class="tool-input" id="video-crop-file" type="file" accept=".avi,.m4v,.mkv,.mov,.mp4,.mpeg,.mpg,.webm">
+            <span class="tool-hint">Enter a crop rectangle in pixels. The video is uploaded to FastAPI for editing.</span>
+        </label>
+        <div class="tool-control-grid">
+            <label class="tool-field" for="crop-x">Left (x)
+                <input class="tool-input" id="crop-x" type="number" min="0" max="10000" value="0">
+            </label>
+            <label class="tool-field" for="crop-y">Top (y)
+                <input class="tool-input" id="crop-y" type="number" min="0" max="10000" value="0">
+            </label>
+            <label class="tool-field" for="crop-width">Width (pixels)
+                <input class="tool-input" id="crop-width" type="number" min="1" max="10000" value="640">
+            </label>
+            <label class="tool-field" for="crop-height">Height (pixels)
+                <input class="tool-input" id="crop-height" type="number" min="1" max="10000" value="360">
+            </label>
+        </div>
+        <button class="button button-primary" id="video-crop" type="button">Crop and download</button>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="video-caption" hidden>
+        <label class="tool-field" for="caption-video-file">Video file
+            <input class="tool-input" id="caption-video-file" type="file" accept=".avi,.m4v,.mkv,.mov,.mp4,.mpeg,.mpg,.webm">
+            <span class="tool-hint">Caption text is burned into the video and the file is uploaded to FastAPI for editing.</span>
+        </label>
+        <label class="tool-field" for="caption-text">Caption text
+            <textarea class="tool-textarea" id="caption-text" rows="3" maxlength="500" placeholder="Type the caption to display"></textarea>
+            <span class="tool-hint">Up to 500 characters</span>
+        </label>
+        <div class="tool-control-grid">
+            <label class="tool-field" for="caption-start">Show from (seconds)
+                <input class="tool-input" id="caption-start" type="number" min="0" max="10800" step="0.1" value="0">
+            </label>
+            <label class="tool-field" for="caption-end">Show until (seconds)
+                <input class="tool-input" id="caption-end" type="number" min="0.1" max="12600" step="0.1" value="5">
+            </label>
+        </div>
+        <button class="button button-primary" id="video-caption" type="button">Add caption and download</button>
+    </section>
+
+    <section class="tool-panel" data-tool-panel="media-merge" hidden>
+        <label class="tool-field" for="media-merge-files">Audio or video files
+            <input class="tool-input" id="media-merge-files" type="file" accept=".aac,.flac,.m4a,.mp3,.oga,.ogg,.opus,.wav,.avi,.m4v,.mkv,.mov,.mp4,.mpeg,.mpg,.webm" multiple>
+            <span class="tool-hint">Choose 2–10 audio files or 2–10 video files. Compatible source codecs are required; total upload limit is 250 MB.</span>
+        </label>
+        <button class="button button-primary" id="media-merge" type="button">Merge and download</button>
+    </section>
+
+    <section class="tool-result" id="tool-result" hidden>
+        <label class="tool-field" for="tool-output">Result
+            <textarea class="tool-textarea result-output" id="tool-output" rows="8" readonly></textarea>
+        </label>
+        <div class="tool-actions result-actions">
+            <button class="button button-secondary" id="copy-result" type="button">Copy result</button>
+            <a class="button button-primary" id="download-result" hidden>Download result</a>
+        </div>
+    </section>
+</dialog>
+{% endblock %}

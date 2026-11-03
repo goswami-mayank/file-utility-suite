@@ -1,0 +1,8 @@
+fastapi[standard]
+uvicorn
+jinja2
+python-multipart
+pillow
+pypdf
+reportlab
+imageio-ffmpeg==0.6.0

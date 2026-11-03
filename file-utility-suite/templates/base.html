@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="Browser-based file tools with FastAPI audio and video editing.">
+    <title>{% block title %}File Utility Suite{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', path='images/favicon.ico') }}" sizes="any">
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    <script src="{{ url_for('static', path='vendor/pdf-lib.min.js') }}" defer></script>
+    <script src="{{ url_for('static', path='toolbox-core.js') }}" defer></script>
+    <script src="{{ url_for('static', path='toolbox-ui.js') }}" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a class="brand" href="/" aria-label="File Utility Suite home">
+                <span class="brand-mark" aria-hidden="true">F</span>
+                <span>File Utility <strong>Suite</strong></span>
+            </a>
+            <div class="nav-links">
+                <a href="/#tools">Browse tools</a>
+                <a href="/#privacy-note">Privacy</a>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a class="brand footer-brand" href="/">
+                <span class="brand-mark" aria-hidden="true">F</span>
+                <span>File Utility <strong>Suite</strong></span>
+            </a>
+            <p>Simple tools. Your files, handled with care.</p>
+        </div>
+    </footer>
+</body>
+</html>

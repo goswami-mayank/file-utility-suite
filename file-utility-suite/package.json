@@ -1,0 +1,12 @@
+{
+  "name": "file-utility-suite-browser-tools",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "vendor:pdf": "node scripts/copy-pdf-lib.cjs"
+  },
+  "dependencies": {
+    "pdf-lib": "1.17.1"
+  }
+}
