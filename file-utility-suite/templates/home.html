@@ -186,7 +186,7 @@
     <div class="container trust-inner">
         <span class="trust-icon" aria-hidden="true">i</span>
         <div><strong>Processing details</strong><span>Image, PDF, and text tools run in your browser. Media edits upload files to FastAPI, then remove temporary files after processing.</span></div>
-        <span class="trust-note">Media uploads: 100 MB per file</span>
+        <span class="trust-note">Media uploads: 1 GB per file</span>
     </div>
 </section>
 
@@ -313,7 +313,7 @@
     <section class="tool-panel" data-tool-panel="media-trim" hidden>
         <label class="tool-field" for="media-trim-file">Audio or video file
             <input class="tool-input" id="media-trim-file" type="file" accept=".aac,.flac,.m4a,.mp3,.oga,.ogg,.opus,.wav,.avi,.m4v,.mkv,.mov,.mp4,.mpeg,.mpg,.webm">
-            <span class="tool-hint">100 MB maximum. Audio exports as MP3; video exports as MP4. The file is uploaded to FastAPI for editing.</span>
+            <span class="tool-hint">1 GB maximum. Audio exports as MP3; video exports as MP4. The file is uploaded to FastAPI for editing.</span>
         </label>
         <div class="tool-control-grid">
             <label class="tool-field" for="trim-start">Start time (seconds)
@@ -371,7 +371,7 @@
     <section class="tool-panel" data-tool-panel="media-merge" hidden>
         <label class="tool-field" for="media-merge-files">Audio or video files
             <input class="tool-input" id="media-merge-files" type="file" accept=".aac,.flac,.m4a,.mp3,.oga,.ogg,.opus,.wav,.avi,.m4v,.mkv,.mov,.mp4,.mpeg,.mpg,.webm" multiple>
-            <span class="tool-hint">Choose 2–10 audio files or 2–10 video files. Compatible source codecs are required; total upload limit is 250 MB.</span>
+            <span class="tool-hint">Choose 2–10 audio files or 2–10 video files. Compatible source codecs are required; total upload limit is 2 GB.</span>
         </label>
         <button class="button button-primary" id="media-merge" type="button">Merge and download</button>
     </section>

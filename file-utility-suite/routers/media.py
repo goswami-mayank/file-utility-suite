@@ -27,8 +27,8 @@ router = APIRouter()
 BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOADS_DIR = BASE_DIR / "uploads"
 OUTPUTS_DIR = BASE_DIR / "outputs"
-MAX_FILE_BYTES = 100 * 1024 * 1024
-MAX_TOTAL_UPLOAD_BYTES = 250 * 1024 * 1024
+MAX_FILE_BYTES = 1024 * 1024 * 1024
+MAX_TOTAL_UPLOAD_BYTES = 2 * 1024 * 1024 * 1024
 
 
 @router.post("/media/trim", name="trim_media")
@@ -134,7 +134,7 @@ async def _process_uploads(
             total_bytes += staged_path.stat().st_size
             if total_bytes > MAX_TOTAL_UPLOAD_BYTES:
                 raise MediaProcessingError(
-                    "The combined upload size cannot exceed 250 MB."
+                    "The combined upload size cannot exceed 2 GB."
                 )
 
         extension = ".mp3" if kind == "audio" else ".mp4"

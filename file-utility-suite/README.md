@@ -15,7 +15,7 @@ A workbench for everyday image, PDF, media, and data/text tasks. Image, PDF, and
 | Audio & video | Merge 2–10 audio files or 2–10 video files | FastAPI with FFmpeg; input codecs/streams must be compatible |
 | Data & text | Format/minify JSON, convert CSV to JSON, change text case, encode/decode UTF-8 Base64 | Browser JavaScript |
 
-Media editing accepts AAC, FLAC, M4A, MP3, OGA, OGG, OPUS, WAV, AVI, M4V, MKV, MOV, MP4, MPEG, MPG, and WEBM filename extensions. Each upload is limited to 100 MB, merge requests to 250 MB total, and media operations to 30 minutes of selected content. FFmpeg must also be able to decode the file. Merge requires compatible source stream layouts and codecs.
+Media editing accepts AAC, FLAC, M4A, MP3, OGA, OGG, OPUS, WAV, AVI, M4V, MKV, MOV, MP4, MPEG, MPG, and WEBM filename extensions. Each upload is limited to 1 GB, merge requests to 2 GB total, and media operations to 30 minutes of selected content. FFmpeg must also be able to decode the file. Merge requires compatible source stream layouts and codecs.
 
 Password-protected PDFs are not supported. Size and page-count limits are shown in the relevant tools. Media source files are removed after processing; generated downloads are removed after the response completes. Stale temporary files are cleaned on startup and hourly.
 

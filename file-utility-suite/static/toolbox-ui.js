@@ -448,8 +448,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!file) {
             return;
         }
-        if (file.size === 0 || file.size > 100 * 1024 * 1024) {
-            setStatus("Choose a non-empty media file no larger than 100 MB.", "error");
+        if (file.size === 0 || file.size > 1024 * 1024 * 1024) {
+            setStatus("Choose a non-empty media file no larger than 1 GB.", "error");
             return;
         }
         const kind = core.mediaKindFromFilename(file.name);
@@ -567,7 +567,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const files = mediaFiles(document.querySelector("#media-merge-files"), {
                 minFiles: 2,
                 maxFiles: 10,
-                maxTotalBytes: 250 * 1024 * 1024,
+                maxTotalBytes: 2 * 1024 * 1024 * 1024,
             });
             const formData = new FormData();
             const kinds = new Set(files.map((file) => appendMediaFile(formData, "files", file)));
